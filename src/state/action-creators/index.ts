@@ -3,7 +3,7 @@ import { Dispatch } from 'react';
 import { Action } from '../actions';
 import { ActionType } from '../action-types';
 
-const searchRepositories = (term: string) => {
+export const searchRepositories = (term: string) => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.SEARCH_REPOSITORIES,
@@ -19,7 +19,7 @@ const searchRepositories = (term: string) => {
         }
       );
       const names = data.objects.map((result: any) => {
-        return result.name;
+        return result.package.name;
       });
 
       dispatch({

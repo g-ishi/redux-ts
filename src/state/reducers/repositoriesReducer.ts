@@ -7,8 +7,15 @@ interface RepositoriesState {
   data: string[];
 }
 
+// reduxでは、初回実行時に初期状態が必要。
+const initialState: RepositoriesState = {
+  loading: false,
+  error: null,
+  data: [],
+};
+
 const reducer = (
-  state: RepositoriesState,
+  state: RepositoriesState = initialState,
   action: Action
 ): RepositoriesState => {
   switch (action.type) {
